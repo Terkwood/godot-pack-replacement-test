@@ -1,9 +1,8 @@
 # godot-pack-replacement-test
 
-An experiment to answer these questions:
+Can the main PCK file loaded by Godot be replaced _while the program is running_? 
 
-- Can the main PCK file loaded by Godot be replaced _while the program is running_? 
-- Can it pick up new ProjectSettings in a sane way? 
+Yes, it can.
 
 ## Findings
 
@@ -13,9 +12,8 @@ If you're delivering incremental updates to game with a large set of assets, thi
 
 ## Project Settings 
 
-We don't believe that we can update these while the game is running. If you need to ship changes to project.godot/project.binary, you'll either need to figure out how to update each value based on its functionality, or you'll need to require that the user restart after the update.
+In case you're using this for something like incremental updates to your game, a word of caution:  we don't believe that we can update `ProjectSettings` (aka `project.godot` or `project.binary`) _while the game is running_. If you need to ship changes to `project.godot`/`project.binary`, you'll either need to figure out how to update each value based on its functionality, or you'll need to require that the user restart after the update.
 
- 
 See:
 
 - https://www.reddit.com/r/godot/comments/anried/is_there_a_way_to_soft_reload_the_game_so_that/
