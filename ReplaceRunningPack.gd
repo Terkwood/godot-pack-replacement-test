@@ -16,7 +16,8 @@ func _on_WaitToRun_timeout():
 	#	$Display.text = "Sorry, you need to run this outside of the editor."
 	#	return
 	
-	if OS.get_executable_path().get_base_dir() == "/Applications/Godot.app/Contents/MacOS":
+	var exec_dir = OS.get_executable_path().get_base_dir()
+	if exec_dir == "/Applications/Godot.app/Contents/MacOS":
 		$Display.text = "Using the system install of Godot... "
 		var pf = File.new()
 		if pf.file_exists("test.pck"):
@@ -33,6 +34,22 @@ func _on_WaitToRun_timeout():
 			$Display.text += "!!! Could not find `test.pck`, abort !!!"
 			return
 	else:
-		$Display.text = "Navigate around to find the file ... WIP!"
+		$Display.text = "Looking for the main pack..."
+		var pf = File.new()
+		var main_pack = "../Resources/Unnamed.pck"
+		if !pf.file_exists():
+			$Display.text += "Not found!  Aborting."
+			return
+		
+		$Display.text += main_pack
+		$Display.text += " Looking for the replacement..."
+		if !pf.file_exists("test.pck"):
+			$Display.text += "Not found!  Aborting."
+			return
+		
+		if pf.copy("test.pck", main_pack) == OK:
+			$Display.text += " Success! Now let's reload our original PCK... "
+			ProjectSettings.load_resource_pack(main_pack)
+			get_tree().change_scene("res://ReplaceRunningPack.tscn")
 		return
 	

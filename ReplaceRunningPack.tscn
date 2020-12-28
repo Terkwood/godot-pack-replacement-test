@@ -6,14 +6,16 @@
 script = ExtResource( 1 )
 
 [node name="Display" type="TextEdit" parent="."]
-margin_left = 49.1023
-margin_top = 73.2963
-margin_right = 357.102
-margin_bottom = 200.296
+margin_left = 49.0
+margin_top = 40.0
+margin_right = 362.0
+margin_bottom = 222.0
 rect_scale = Vector2( 3, 3 )
 text = "Can the PCK file which is used to start the game be replaced while the game is running?
 
-If so, can we read in new ProjectSettings from the replacement pack?"
+If so, can we read in new ProjectSettings from the replacement pack?
+
+This only works on Mac OSX right now. Do not run this from the editor: export it!"
 readonly = true
 wrap_enabled = true
 __meta__ = {
