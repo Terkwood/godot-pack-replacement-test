@@ -2,14 +2,14 @@
 
 An experiment to answer these questions:
 
-- Can the main PCK file loaded by Godot be replaced while the program is running? 
+- Can the main PCK file loaded by Godot be replaced _while the program is running_? 
 - Can it pick up new ProjectSettings in a sane way? 
 
 ## Findings
 
 We can export a Mac app, and _successfully replace the pck file_ that's contained inside the Mac application folder structure _while the app is running_.  The next time the app starts up, it goes straight to the replacement PCK, and the old one is gone completely.
 
-If you're delivering incremental updates to game with a large set of assets, this is good news:  you can get rid of the bulky, outdated PCK file that you originally shipped, and virtuously save your user's disk space... while the game itself is running!
+If you're delivering incremental updates to game with a large set of assets, this is good news:  you can get rid of the bulky, outdated PCK file that you originally shipped, and virtuously save your user's disk space.
 
 ## Still TBD: ProjectSettings freshness
 
