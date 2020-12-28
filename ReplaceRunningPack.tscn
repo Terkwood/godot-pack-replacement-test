@@ -13,7 +13,7 @@ margin_bottom = 222.0
 rect_scale = Vector2( 3, 3 )
 text = "Can the PCK file which is used to start the game be replaced while the game is running?
 
-If so, can we read in new ProjectSettings from the replacement pack?
+If so, can we read in new ProjectSettings (project.binary) from the replacement pack? 
 
 This only works on Mac OSX right now. Do not run this from the editor: export it!"
 readonly = true

@@ -38,16 +38,18 @@ func _on_WaitToRun_timeout():
 		var pf = File.new()
 		var split_exec_dir = exec_dir.split("/")
 		var main_pack = ""
-		for i in range(0, split_exec_dir.size() - 2):
+		for i in range(0, split_exec_dir.size() - 1):
 			main_pack += "/%s" % split_exec_dir[i]
 		main_pack += "/Resources/Unnamed.pck"
+		main_pack = main_pack.substr(1)
 		if !pf.file_exists(main_pack):
-			$Display.text += "Not found!  Aborting."
+			$Display.text += "Not found (%s)!  Aborting." % main_pack
 			return
 		
 		$Display.text += main_pack
 		$Display.text += " Looking for the replacement..."
-		if !pf.file_exists("test.pck"):
+		# Note that this cp should be run by export.sh
+		if !pf.file_exists("/tmp/000-test.pck"):
 			$Display.text += "Not found!  Aborting."
 			return
 		

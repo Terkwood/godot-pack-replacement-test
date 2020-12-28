@@ -4,3 +4,4 @@
 
 godot --export-pack "Mac OSX" export/main.pck
 godot --export "Mac OSX" export/Test.dmg
+cp test.pck /tmp/000-test.pck
