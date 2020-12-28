@@ -14,5 +14,13 @@ func _is_editor_mode():
 func _on_WaitToRun_timeout():
 	if _is_editor_mode():
 		$Display.text = "Sorry, you need to run this outside of the editor."
+		return
+	
+	if OS.get_executable_path().get_base_dir() == "/Applications/Godot.app/Contents/MacOS":
+		$Display.text = "Using the system install of Godot... "
+		var pf = File.new()
+		if pf.file_exists("test.pck"):
+			$Display.text += "Found `test.pck`.  Loading (WIP)..."
 	else:
-		$Display.text = "WIP: executable base dir is %s" % OS.get_executable_path().get_base_dir()
+		$Display.text = "Navigate around to find the file ... WIP!"
+	
