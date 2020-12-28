@@ -16,8 +16,7 @@ func _on_WaitToRun_timeout():
 	#	$Display.text = "Sorry, you need to run this outside of the editor."
 	#	return
 	
-	#if OS.get_executable_path().get_base_dir() == "/Applications/Godot.app/Contents/MacOS":
-	if OS.is_debug_build():
+	if OS.get_executable_path().get_base_dir() == "/Applications/Godot.app/Contents/MacOS":
 		$Display.text = "Using the system install of Godot... "
 		var pf = File.new()
 		if pf.file_exists("test.pck"):
