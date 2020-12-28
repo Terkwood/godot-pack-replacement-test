@@ -7,9 +7,9 @@ func _path_to_main_pck():
 
 func _is_editor_mode():
 	if OS.has_feature("standalone"):
-		return true
-	else:
 		return false
+	else:
+		return true
 
 func _on_WaitToRun_timeout():
 	if _is_editor_mode():
@@ -21,9 +21,17 @@ func _on_WaitToRun_timeout():
 		var pf = File.new()
 		if pf.file_exists("test.pck"):
 			$Display.text += "Found `test.pck`.  Trying to overwrite `export/main.pck`..."
+			var pd = Directory.new()
+			if pd.copy("test.pck", "export/main.pck") == OK:
+				$Display.text += " Success! Now let's reload our original PCK... "
+				ProjectSettings.load_resource_pack("export/main.pck")
+			else:
+				$Display.text += " FAILED!  We're done here."
+				return
 		else:
 			$Display.text += "!!! Could not find `test.pck`, abort !!!"
 			return
 	else:
 		$Display.text = "Navigate around to find the file ... WIP!"
+		return
 	
