@@ -54,7 +54,8 @@ func _on_WaitToRun_timeout():
 			return
 		
 		$Display.text += " Trying to copy over the main pack file... "
-		if pf.copy("/tmp/000-test.pck", main_pack) == OK:
+		var pd = Directory.new()
+		if pd.copy("/tmp/000-test.pck", main_pack) == OK:
 			$Display.text += " Success! Now let's reload our original PCK... "
 			ProjectSettings.load_resource_pack(main_pack)
 			get_tree().change_scene("res://ReplaceRunningPack.tscn")
