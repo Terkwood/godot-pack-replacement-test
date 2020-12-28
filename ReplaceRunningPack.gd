@@ -50,10 +50,10 @@ func _on_WaitToRun_timeout():
 		$Display.text += " Looking for the replacement..."
 		# Note that this cp should be run by export.sh
 		if !pf.file_exists("/tmp/000-test.pck"):
-			$Display.text += "Not found!  Aborting."
+			$Display.text += "Not found!  Run export.sh to copy the replacement PCK into /tmp.  Aborting."
 			return
 		
-		if pf.copy("test.pck", main_pack) == OK:
+		if pf.copy("/tmp/000-test.pck", main_pack) == OK:
 			$Display.text += " Success! Now let's reload our original PCK... "
 			ProjectSettings.load_resource_pack(main_pack)
 			get_tree().change_scene("res://ReplaceRunningPack.tscn")
