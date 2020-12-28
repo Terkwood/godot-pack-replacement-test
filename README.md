@@ -22,6 +22,7 @@ You may NOT run this experiment in the Godot editor!  PCK files don't really wor
 Run `export.sh`.  It will export both a PCK file and a Mac DMG file.  It will also create a file `/tmp/000-test.pck` on your system, which will be used if you unzip the Mac DMG and run it.
 
 Then pick a flavor:
-    - `sh run_system_install.sh`: this will use the system install of Godot
-    - Unzip the DMG then `sh run_exported_mac_app.sh`
-    - Unzip the DMG then run the Mac app by clicking it.
+    
+- `sh run_system_install.sh`: this will use the system install of Godot
+- Unzip the DMG then `sh run_exported_mac_app.sh`  
+- Unzip the DMG then run the Mac app by clicking it.
