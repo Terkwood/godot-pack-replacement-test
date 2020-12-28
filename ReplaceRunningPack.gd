@@ -34,10 +34,14 @@ func _on_WaitToRun_timeout():
 			$Display.text += "!!! Could not find `test.pck`, abort !!!"
 			return
 	else:
-		$Display.text = "Looking for the main pack..."
+		$Display.text = "In %s. Looking for the main pack..." % exec_dir
 		var pf = File.new()
-		var main_pack = "../Resources/Unnamed.pck"
-		if !pf.file_exists():
+		var split_exec_dir = exec_dir.split("/")
+		var main_pack = ""
+		for i in range(0, split_exec_dir.size() - 2):
+			main_pack += "/%s" % split_exec_dir[i]
+		main_pack += "/Resources/Unnamed.pck"
+		if !pf.file_exists(main_pack):
 			$Display.text += "Not found!  Aborting."
 			return
 		
