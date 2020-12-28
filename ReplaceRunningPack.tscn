@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ReplaceRunningPack.gd" type="Script" id=1]
+
+[node name="ReplaceRunningPack" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Display" type="TextEdit" parent="."]
+margin_left = 49.1023
+margin_top = 73.2963
+margin_right = 357.102
+margin_bottom = 200.296
+rect_scale = Vector2( 3, 3 )
+text = "Can the PCK file which is used to start the game be replaced while the game is running?
+
+If so, can we read in new ProjectSettings from the replacement pack?"
+readonly = true
+wrap_enabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaitToRun" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+[connection signal="timeout" from="WaitToRun" to="." method="_on_WaitToRun_timeout"]
