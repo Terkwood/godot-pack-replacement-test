@@ -11,9 +11,9 @@ We can export a Mac app, and _successfully replace the pck file_ that's containe
 
 If you're delivering incremental updates to game with a large set of assets, this is good news:  you can get rid of the bulky, outdated PCK file that you originally shipped, and virtuously save your user's disk space.
 
-## Still TBD: ProjectSettings freshness
+## Project Settings 
 
-Still under investigation.
+We don't believe that we can update these while the game is running. If you need to ship changes to project.godot/project.binary, you'll either need to figure out how to update each value based on its functionality, or you'll need to require that the user restart after the update. 
 
 ## Usage
 
