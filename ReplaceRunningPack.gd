@@ -20,7 +20,10 @@ func _on_WaitToRun_timeout():
 		$Display.text = "Using the system install of Godot... "
 		var pf = File.new()
 		if pf.file_exists("test.pck"):
-			$Display.text += "Found `test.pck`.  Loading (WIP)..."
+			$Display.text += "Found `test.pck`.  Trying to overwrite `export/main.pck`..."
+		else:
+			$Display.text += "!!! Could not find `test.pck`, abort !!!"
+			return
 	else:
 		$Display.text = "Navigate around to find the file ... WIP!"
 	
