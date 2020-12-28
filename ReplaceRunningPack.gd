@@ -2,9 +2,6 @@ extends Node2D
 
 const _NEW_PCK_PATH = 1
 
-func _path_to_main_pck():
-	pass
-
 func _is_editor_mode():
 	if OS.has_feature("editor"):
 		return true
@@ -12,9 +9,9 @@ func _is_editor_mode():
 		return false
 
 func _on_WaitToRun_timeout():
-	#if _is_editor_mode():
-	#	$Display.text = "Sorry, you need to run this outside of the editor."
-	#	return
+	if _is_editor_mode():
+		$Display.text = "Sorry, you need to run this outside of the editor."
+		return
 	
 	var exec_dir = OS.get_executable_path().get_base_dir()
 	if exec_dir == "/Applications/Godot.app/Contents/MacOS":
