@@ -13,7 +13,13 @@ If you're delivering incremental updates to game with a large set of assets, thi
 
 ## Project Settings 
 
-We don't believe that we can update these while the game is running. If you need to ship changes to project.godot/project.binary, you'll either need to figure out how to update each value based on its functionality, or you'll need to require that the user restart after the update. 
+We don't believe that we can update these while the game is running. If you need to ship changes to project.godot/project.binary, you'll either need to figure out how to update each value based on its functionality, or you'll need to require that the user restart after the update.
+
+ 
+See:
+
+- https://www.reddit.com/r/godot/comments/anried/is_there_a_way_to_soft_reload_the_game_so_that/
+
 
 ## Usage
 
